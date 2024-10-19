@@ -1,3 +1,5 @@
+'use client'
+
 import Timer from "@/components/Timer";
 import { Bitter } from "@next/font/google";
 import { Poppins } from "@next/font/google";
@@ -37,10 +39,16 @@ export default function Home() {
             </h1>
             <Timer launchDate="2024-11-08T17:00:00" />
             <button
-              className={`mt-6 sm:mt-8 md:mt-10 px-4 sm:px-6 py-2 sm:py-3 bg-lime-500 text-black text-sm sm:text-base md:text-lg ${poppins.className}`}
+              className={`group relative mt-6 sm:mt-8 md:mt-10 px-3 sm:px-4 py-1.5 sm:py-2.5 bg-lime-500 text-black text-xs sm:text-sm md:text-base ${poppins.className} border-2 border-transparent transition-all duration-500 overflow-hidden`}
             >
-              <span className="inline-block w-5 h-[1px] bg-black mr-2 align-middle"></span>
-              BUY TICKET
+              <span className="inline-block w-4 h-[1.3px] bg-black mr-2 align-middle"></span>
+              <span className="relative z-10 transition-colors duration-500 ease-in-out group-hover:text-[#32cd32]">BUY TICKET</span>
+              <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></div>
+              <style jsx>{`
+                button:hover {
+                  border-color: #32cd32; /* green border on hover */
+                }
+              `}</style>
             </button>
           </div>
         </div>
